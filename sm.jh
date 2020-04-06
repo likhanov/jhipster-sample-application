@@ -1,0 +1,47 @@
+
+entity Request {
+	requestID String required,
+    status StatusRequest,
+    error String
+}
+
+enum StatusRequest {
+    SUCCEED, ERROR
+}
+
+relationship OneToMany {
+	Request to Order{request}
+}
+
+entity Order {
+	OrderID String required,
+    Version Integer,
+    CollectionName String,
+    IsCancelled Boolean,
+    NomineeName String,
+    VendorName String,
+    FactoryName String,
+    DeliveryAddress String,
+    Comment String,
+    CILQuantity Long,
+    CILRequestQuantity Long
+}
+
+relationship OneToMany {
+	Order to Item{order}
+}
+
+entity Item {
+	PPOID String required,
+    LabelID String,
+    TDCode String,
+    Quantity Long,
+    SalesCountryName String,
+    Comment String,
+    StickerID String
+}
+
+paginate all with pagination
+
+service all with serviceImpl
+
