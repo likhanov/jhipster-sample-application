@@ -1,0 +1,56 @@
+{
+    "name": "Item",
+    "fields": [
+        {
+            "fieldName": "pPOID",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "labelID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tDCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "salesCountryName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stickerID",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "order",
+            "otherEntityRelationshipName": "item",
+            "relationshipName": "order",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200406092300",
+    "entityTableName": "item",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

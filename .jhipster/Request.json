@@ -1,0 +1,40 @@
+{
+    "name": "Request",
+    "fields": [
+        {
+            "fieldName": "requestID",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "StatusRequest",
+            "fieldValues": "SUCCEED,ERROR"
+        },
+        {
+            "fieldName": "error",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "order",
+            "otherEntityRelationshipName": "request",
+            "relationshipName": "order"
+        }
+    ],
+    "changelogDate": "20200406092100",
+    "entityTableName": "request",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

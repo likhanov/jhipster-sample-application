@@ -1,0 +1,78 @@
+{
+    "name": "Order",
+    "fields": [
+        {
+            "fieldName": "orderID",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "collectionName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isCancelled",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "nomineeName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vendorName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "factoryName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deliveryAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cILQuantity",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "cILRequestQuantity",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "item",
+            "otherEntityRelationshipName": "order",
+            "relationshipName": "item"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "request",
+            "otherEntityRelationshipName": "order",
+            "relationshipName": "request",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200406092200",
+    "entityTableName": "order",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

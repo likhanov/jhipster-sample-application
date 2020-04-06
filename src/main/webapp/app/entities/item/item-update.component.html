@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-item-heading">Create or edit a Item</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pPOID">P POID</label>
+                    <input type="text" class="form-control" name="pPOID" id="field_pPOID"
+                           formControlName="pPOID"/>
+                    <div *ngIf="editForm.get('pPOID')!.invalid && (editForm.get('pPOID')!.dirty || editForm.get('pPOID')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('pPOID')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_labelID">Label ID</label>
+                    <input type="text" class="form-control" name="labelID" id="field_labelID"
+                           formControlName="labelID"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tDCode">T D Code</label>
+                    <input type="text" class="form-control" name="tDCode" id="field_tDCode"
+                           formControlName="tDCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                           formControlName="quantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_salesCountryName">Sales Country Name</label>
+                    <input type="text" class="form-control" name="salesCountryName" id="field_salesCountryName"
+                           formControlName="salesCountryName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_comment">Comment</label>
+                    <input type="text" class="form-control" name="comment" id="field_comment"
+                           formControlName="comment"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_stickerID">Sticker ID</label>
+                    <input type="text" class="form-control" name="stickerID" id="field_stickerID"
+                           formControlName="stickerID"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" formControlName="order">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderOption.id === editForm.get('order')!.value?.id ? editForm.get('order')!.value : orderOption" *ngFor="let orderOption of orders; trackBy: trackById">{{ orderOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
