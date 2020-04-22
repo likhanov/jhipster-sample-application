@@ -1,0 +1,15 @@
+
+entity Model {
+	lastName String required,
+    firstName String required,
+    patronymic String,
+    height String required,
+    chest String required,
+    waist String required,
+    hips String required
+}
+
+paginate all with pagination
+
+service all with serviceImpl
+
