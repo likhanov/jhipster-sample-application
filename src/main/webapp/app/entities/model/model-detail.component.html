@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="model">
+            <h2><span>Model</span> {{ model.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Last Name</span></dt>
+                <dd>
+                    <span>{{ model.lastName }}</span>
+                </dd>
+                <dt><span>First Name</span></dt>
+                <dd>
+                    <span>{{ model.firstName }}</span>
+                </dd>
+                <dt><span>Patronymic</span></dt>
+                <dd>
+                    <span>{{ model.patronymic }}</span>
+                </dd>
+                <dt><span>Height</span></dt>
+                <dd>
+                    <span>{{ model.height }}</span>
+                </dd>
+                <dt><span>Chest</span></dt>
+                <dd>
+                    <span>{{ model.chest }}</span>
+                </dd>
+                <dt><span>Waist</span></dt>
+                <dd>
+                    <span>{{ model.waist }}</span>
+                </dd>
+                <dt><span>Hips</span></dt>
+                <dd>
+                    <span>{{ model.hips }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/model', model.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
